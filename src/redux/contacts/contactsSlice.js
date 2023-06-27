@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { contactsInitialState } from './contactsInitialState';
-import { addContact, deleteContact, fetchContacts } from './thunks';
+import { addContact, deleteContact, fetchContacts } from './contactsThunks';
 import {
   AddHandleFulfilled,
   AllHandleFulfilled,
   DelHandleFulfilled,
   handlePending,
   handleRejected,
-} from './handlers';
+} from './contactsHandlers';
 
 export const contactsSlice = createSlice({
   name: 'contacts',
