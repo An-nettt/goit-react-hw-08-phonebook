@@ -4,7 +4,7 @@ import Login from 'pages/LoginPage';
 import Register from 'pages/RegisterPage';
 import Contacts from 'pages/ContactsPage';
 import { Route, Routes } from 'react-router-dom';
-import Header from './Header/Header';
+import Header from './Header/AppBar';
 
 export default function App() {
   return (

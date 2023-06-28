@@ -1,21 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { register } from './authThunks';
-import { RegisterHandleFulfilled } from './authHandlers';
+import { login, logout, register } from './authThunks';
+import {
+  LogInHandleFulfilled,
+  LogOutHandleFulfilled,
+  RegisterHandleFulfilled,
+} from './authHandlers';
 const { authInitialState } = require('./authInitialState');
 
 const authSlice = createSlice({
   name: 'auth',
   initialState: authInitialState,
   extraReducers: builder => {
-    builder.addCase(register.fulfilled, RegisterHandleFulfilled);
+    builder
+      .addCase(register.fulfilled, RegisterHandleFulfilled)
 
-    //   .addCase(login.pending, handlePending);
-    //   .addCase(login.fulfilled, AddHandleFulfilled)
-    //   .addCase(login.rejected, handleRejected);
+      //   .addCase(login.pending, handlePending);
+      .addCase(login.fulfilled, LogInHandleFulfilled)
+      //   .addCase(login.rejected, handleRejected);
 
-    //   .addCase(deleteContact.pending, handlePending)
-    //   .addCase(deleteContact.fulfilled, DelHandleFulfilled)
+      //   .addCase(deleteContact.pending, handlePending)
+      .addCase(logout.fulfilled, LogOutHandleFulfilled);
     //   .addCase(deleteContact.rejected, handleRejected);
   },
 });
