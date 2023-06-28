@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { login, logout, register } from './authThunks';
+import { login, logout, register, getCurrentUser } from './authThunks';
 import {
   LogInHandleFulfilled,
   LogOutHandleFulfilled,
   RegisterHandleFulfilled,
+  RefreshHandleFulfilled,
 } from './authHandlers';
 const { authInitialState } = require('./authInitialState');
 
@@ -19,9 +20,8 @@ const authSlice = createSlice({
       .addCase(login.fulfilled, LogInHandleFulfilled)
       //   .addCase(login.rejected, handleRejected);
 
-      //   .addCase(deleteContact.pending, handlePending)
-      .addCase(logout.fulfilled, LogOutHandleFulfilled);
-    //   .addCase(deleteContact.rejected, handleRejected);
+      .addCase(logout.fulfilled, LogOutHandleFulfilled)
+      .addCase(getCurrentUser.fulfilled, RefreshHandleFulfilled);
   },
 });
 

@@ -15,3 +15,8 @@ export const LogOutHandleFulfilled = state => {
   state.token = '';
   state.isLoggedIn = false;
 };
+
+export const RefreshHandleFulfilled = (state, { payload }) => {
+  state.user = payload;
+  state.isLoggedIn = true;
+};

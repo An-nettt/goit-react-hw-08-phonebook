@@ -1,12 +1,22 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+
 import Home from 'pages/HomePage';
 import Login from 'pages/LoginPage';
 // import NotFound from 'pages/NotFound';
 import Register from 'pages/RegisterPage';
 import Contacts from 'pages/ContactsPage';
-import { Route, Routes } from 'react-router-dom';
 import Header from './Header/AppBar';
+import { getCurrentUser } from 'redux/auth/authThunks';
 
 export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCurrentUser());
+  }, [dispatch]);
+
   return (
     <>
       <Header />
