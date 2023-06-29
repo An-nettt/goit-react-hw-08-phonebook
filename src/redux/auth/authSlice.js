@@ -5,6 +5,7 @@ import {
   LogInHandleFulfilled,
   LogOutHandleFulfilled,
   RegisterHandleFulfilled,
+  RefreshHandlePending,
   RefreshHandleFulfilled,
 } from './authHandlers';
 const { authInitialState } = require('./authInitialState');
@@ -16,11 +17,11 @@ const authSlice = createSlice({
     builder
       .addCase(register.fulfilled, RegisterHandleFulfilled)
 
-      //   .addCase(login.pending, handlePending);
       .addCase(login.fulfilled, LogInHandleFulfilled)
-      //   .addCase(login.rejected, handleRejected);
 
       .addCase(logout.fulfilled, LogOutHandleFulfilled)
+
+      .addCase(getCurrentUser.pending, RefreshHandlePending)
       .addCase(getCurrentUser.fulfilled, RefreshHandleFulfilled);
   },
 });
