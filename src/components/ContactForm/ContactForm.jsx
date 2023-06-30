@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { getContacts } from 'redux/contacts/contactsSelectors';
 import { PhonebookForm, Text, Input, Button } from '../../styled';
@@ -61,7 +61,7 @@ const ContactForm = () => {
 };
 export default ContactForm;
 
-// ContactForm.propTypes = {
-//   name: PropTypes.string,
-//   number: PropTypes.number,
-// };
+ContactForm.propTypes = {
+  name: PropTypes.string,
+  number: PropTypes.number,
+};
