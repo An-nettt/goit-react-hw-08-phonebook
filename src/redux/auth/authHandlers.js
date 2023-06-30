@@ -26,3 +26,8 @@ export const RefreshHandleFulfilled = (state, { payload }) => {
   state.isLoggedIn = true;
   state.isRefreshing = false;
 };
+
+export const handleRejected = (state, { payload }) => {
+  state.isLoading = false;
+  state.isError = true;
+};

@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { Grid, TextField, Button, Box } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { Grid, TextField, Button, Box, Alert, AlertTitle } from '@mui/material';
 // import * as yup from 'yup';
 
 import { login } from 'redux/auth/authThunks';
+import { getIsError } from 'redux/auth/authSelectors';
+// import { authReducer } from 'redux/auth/authSlice';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+  const isError = useSelector(getIsError);
+
+  useEffect(() => {
+    if (isError) {
+      console.log(isError);
+      <Alert variant="outlined" severity="error">
+        <AlertTitle>Error</AlertTitle>
+        Incorrect email or password
+      </Alert>;
+      return;
+      // dispatch(authReducer.clearError());
+    }
+  }, [dispatch, isError]);
 
   const handleSubmit = e => {
     e.preventDefault();

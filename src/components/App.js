@@ -16,6 +16,7 @@ import { RestrictedRoute } from './Header/RestrictedRoute';
 
 import { getCurrentUser } from 'redux/auth/authThunks';
 import Header from './Header/AppBar';
+import NotFound from 'pages/NotFoundPage';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -51,7 +52,7 @@ export default function App() {
           element={<PrivateRoute element={<Contacts />} redirectTo="/login" />}
         />
 
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </ThemeProvider>
   );

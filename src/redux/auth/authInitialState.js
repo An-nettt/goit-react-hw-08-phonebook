@@ -3,4 +3,5 @@ export const authInitialState = {
   isLoggedIn: false,
   isRefreshing: false,
   token: null,
+  isError: false,
 };
