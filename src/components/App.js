@@ -29,7 +29,7 @@ export default function App() {
       <Header />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/goit-react-hw-08-phonebook/" element={<Home />} />
         <Route index element={<Home />} />
         <Route
           path="/register"
