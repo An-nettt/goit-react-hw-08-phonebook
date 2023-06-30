@@ -1,10 +1,9 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-// import { useFormik } from 'formik';
-// import * as yup from 'yup';
-// import Button from '@mui/material/Button';
-// import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Grid, TextField, Button, Box } from '@mui/material';
+// import * as yup from 'yup';
+
 import { login } from 'redux/auth/authThunks';
 
 const LoginPage = () => {
@@ -23,24 +22,57 @@ const LoginPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Login</button>
-      <Link to="/login">Register</Link>
-    </form>
+    <Box
+      component="form"
+      noValidate
+      onSubmit={handleSubmit}
+      sx={{ mt: 1, ml: '20px', width: '60vw' }}
+      autoComplete="off"
+    >
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email"
+            name="email"
+            autoComplete="email"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Login
+          </Button>
+
+          <Grid container>
+            <Grid item>
+              <Link to="/register" variant="body2">
+                {"Don't have an account? REGISTER"}
+              </Link>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
-
-// const LoginPage = () => {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
 
 //   const validationSchema = yup.object({
 //     email: yup
@@ -66,37 +98,6 @@ const LoginPage = () => {
 //     },
 //   });
 
-//   return (
-//     <div>
-//       <form onSubmit={formik.handleSubmit}>
-//         <TextField
-//           fullWidth
-//           id="email"
-//           name="email"
-//           label="Email"
-//           value={formik.values.email}
-//           onChange={formik.handleChange}
-//           error={formik.touched.email && Boolean(formik.errors.email)}
-//           helperText={formik.touched.email && formik.errors.email}
-//         />
-//         <TextField
-//           fullWidth
-//           id="password"
-//           name="password"
-//           label="Password"
-//           type="password"
-//           value={formik.values.password}
-//           onChange={formik.handleChange}
-//           error={formik.touched.password && Boolean(formik.errors.password)}
-//           helperText={formik.touched.password && formik.errors.password}
-//         />
-//         <Button color="primary" variant="contained" fullWidth type="submit">
-//           Login
-//         </Button>
-//         <Link to="/register">Register</Link>
-//       </form>
-//     </div>
-//   );
-// };
+//
 
 export default LoginPage;

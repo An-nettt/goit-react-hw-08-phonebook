@@ -14,6 +14,7 @@ export const LogOutHandleFulfilled = state => {
   state.user = '';
   state.token = '';
   state.isLoggedIn = false;
+  state.isRefreshing = false;
 };
 
 export const RefreshHandlePending = state => {

@@ -2,22 +2,23 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   margin: auto;
-  padding-left: 20px;
+  /* padding-left: 2  0px; */
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h2`
   margin: auto;
+  margin-left: 20px;
   margin-top: 30px;
   margin-bottom: 20px;
-  padding-left: 20px;
+  padding-left: 0;
   font-weight: 700;
   font-size: 30px;
 `;
 
 export const PhonebookForm = styled.form`
-  margin: 20px;
+  /* margin: 20px; */
   padding: 0px 10px 15px 10px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 `;
 
 export const Text = styled.p`
@@ -42,14 +43,14 @@ export const Button = styled.button`
   font-weight: 500;
 `;
 
-export const ContactsTitle = styled.h2`
-  margin: auto;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  padding-left: 20px;
-  font-weight: 700;
-  font-size: 23px;
-`;
+// export const ContactsTitle = styled.h2`
+//   margin: auto;
+//   margin-top: 30px;
+//   margin-bottom: 20px;
+//   padding-left: 20px;
+//   font-weight: 700;
+//   font-size: 23px;
+// `;
 
 export const FilterWrapper = styled.div`
   margin-left: 20px;

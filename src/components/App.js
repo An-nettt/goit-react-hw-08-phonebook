@@ -2,17 +2,20 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from './Theme/Theme';
+
 import Home from 'pages/HomePage';
 import LoginPage from 'pages/LoginPage';
 import RegisterPage from 'pages/RegisterPage';
 import Contacts from 'pages/ContactsPage';
 // import NotFound from 'pages/NotFound';
 
-import Header from './Header/AppBar';
 import { PrivateRoute } from './Header/PrivateRoute';
 import { RestrictedRoute } from './Header/RestrictedRoute';
 
 import { getCurrentUser } from 'redux/auth/authThunks';
+import Header from './Header/AppBar';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -22,7 +25,7 @@ export default function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Header />
 
       <Routes>
@@ -50,6 +53,6 @@ export default function App() {
 
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
-    </>
+    </ThemeProvider>
   );
 }

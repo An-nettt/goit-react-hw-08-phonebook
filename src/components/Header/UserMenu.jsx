@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getUserName } from 'redux/auth/authSelectors';
@@ -10,9 +11,16 @@ export default function UserMenu() {
   return (
     <div>
       <span>Welcome, {name} </span>
-      <button type="button" onClick={() => dispatch(logout())}>
+
+      <Button
+        color="secondary"
+        variant="contained"
+        size="small"
+        onClick={() => dispatch(logout())}
+        sx={{ color: 'theme.text.primary.main' }}
+      >
         LogOut
-      </button>
+      </Button>
     </div>
   );
 }

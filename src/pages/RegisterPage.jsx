@@ -1,4 +1,5 @@
 // import React, { useState } from 'react';
+import { Box, Button, Grid, TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 // import { useFormik } from 'formik';
 // import * as yup from 'yup';
@@ -42,84 +43,67 @@ const RegisterPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
-      <label>
-        Username
-        <input type="text" name="name" />
-      </label>
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Register</button>
-      <Link to="/login">Login</Link>
-    </form>
+    <Box
+      component="form"
+      noValidate
+      onSubmit={handleSubmit}
+      sx={{ mt: 1 }}
+      autoComplete="off"
+    >
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6}>
+          {/* <form onSubmit={handleSubmit} > */}
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="name"
+            label="Username"
+            name="name"
+            autoComplete="name"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email"
+            name="email"
+            autoComplete="email"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            REGISTER
+          </Button>
+
+          <Grid container>
+            <Grid item>
+              <Link to="/login" variant="body2">
+                {'Already have an account? LOGIN'}
+              </Link>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
-
-//   const formik = useFormik({
-//     initialValues: authInitialState,
-//     validationSchema: validationSchema,
-//     onSubmit: values => {
-//       dispatch(
-//         register({
-//           name: values.name,
-//           email: values.email,
-//           password: values.password,
-//         })
-//       );
-//       // setName(values.name);
-//       // setEmail(values.email);
-//       // setPassword(values.password);
-//       console.log({ name, email, password });
-//     },
-//   });
-
-//   return (
-//     <div>
-//       <form onSubmit={formik.handleSubmit}>
-//         <TextField
-//           fullWidth
-//           id="name"
-//           name="name"
-//           label="name"
-//           value={formik.values.name}
-//           onChange={formik.handleChange}
-//           error={formik.touched.name && Boolean(formik.errors.name)}
-//           helperText={formik.touched.name && formik.errors.name}
-//         />
-//         <TextField
-//           fullWidth
-//           id="email"
-//           name="email"
-//           label="Email"
-//           value={formik.values.email}
-//           onChange={formik.handleChange}
-//           error={formik.touched.email && Boolean(formik.errors.email)}
-//           helperText={formik.touched.email && formik.errors.email}
-//         />
-//         <TextField
-//           fullWidth
-//           id="password"
-//           name="password"
-//           label="Password"
-//           type="password"
-//           value={formik.values.password}
-//           onChange={formik.handleChange}
-//           error={formik.touched.password && Boolean(formik.errors.password)}
-//           helperText={formik.touched.password && formik.errors.password}
-//         />
-//         <Button color="primary" variant="contained" fullWidth type="submit">
-//           Register
-//         </Button>
-//
-//       </form>
-//     </div>
-//   );
-// };
 
 export default RegisterPage;
