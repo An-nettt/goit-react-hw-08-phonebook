@@ -6,7 +6,6 @@ import AuthNav from './AuthNav';
 import UserMenu from './UserMenu';
 import { getIsLoggedIn } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
-import { Contacts } from 'pages/ContactsPage';
 
 const Header = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
