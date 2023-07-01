@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { CardMedia, Stack, Typography } from '@mui/material';
 
 import { Wrapper } from 'styled';

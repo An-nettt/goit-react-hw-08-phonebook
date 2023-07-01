@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid, TextField, Button, Box } from '@mui/material';
 import Notiflix from 'notiflix';
-// import * as yup from 'yup';
 
 import { login } from 'redux/auth/authThunks';
 import { getIsError } from 'redux/auth/authSelectors';
@@ -41,10 +40,6 @@ const LoginPage = () => {
         sx={{ mt: 1, ml: '20px', width: '60vw' }}
         autoComplete="off"
       >
-        {/* <Alert variant="filled" severity="error">
-          <AlertTitle>Error</AlertTitle>
-          Incorrect email or password
-        </Alert> */}
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -87,35 +82,7 @@ const LoginPage = () => {
           </Grid>
         </Grid>
       </Box>
-      {/* {isError ? <AlertError />} */}
     </>
   );
 };
-
-//   const validationSchema = yup.object({
-//     email: yup
-//       .string('Enter your email')
-//       .email('Enter a valid email')
-//       .required('Email is required'),
-//     password: yup
-//       .string('Enter your password')
-//       .min(8, 'Password should be of minimum 8 characters length')
-//       .required('Password is required'),
-//   });
-
-//   const formik = useFormik({
-//     initialValues: {
-//       email: '',
-//       password: '',
-//     },
-//     validationSchema: validationSchema,
-//     onSubmit: values => {
-//       setEmail(values.email);
-//       setPassword(values.password);
-//       console.log({ email, password });
-//     },
-//   });
-
-//
-
 export default LoginPage;
