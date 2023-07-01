@@ -29,7 +29,7 @@ export default function App() {
       <Header />
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/goit-react-hw-08-phonebook/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route index element={<Home />} />
           <Route
             path="/register"
