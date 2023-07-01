@@ -15,8 +15,6 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (isError) {
-      console.log(isError);
-      <h1>Error</h1>;
       Notiflix.Notify.failure('Incorrect email or password');
       dispatch(clearError());
     }
