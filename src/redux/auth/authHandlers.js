@@ -10,11 +10,15 @@ export const LogInHandleFulfilled = (state, { payload }) => {
   state.isLoggedIn = true;
 };
 
+export const LogInHandleRejected = state => {
+  state.isLoading = false;
+  state.isError = true;
+};
+
 export const LogOutHandleFulfilled = state => {
   state.user = '';
   state.token = '';
   state.isLoggedIn = false;
-  state.isRefreshing = false;
 };
 
 export const RefreshHandlePending = state => {
@@ -27,7 +31,6 @@ export const RefreshHandleFulfilled = (state, { payload }) => {
   state.isRefreshing = false;
 };
 
-export const handleRejected = (state, { payload }) => {
-  state.isLoading = false;
-  state.isError = true;
+export const RefreshHandleRejected = (state, { payload }) => {
+  state.isRefreshing = false;
 };

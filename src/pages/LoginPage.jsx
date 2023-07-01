@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Grid, TextField, Button, Box, Alert, AlertTitle } from '@mui/material';
+import { Grid, TextField, Button, Box } from '@mui/material';
+import Notiflix from 'notiflix';
 // import * as yup from 'yup';
 
 import { login } from 'redux/auth/authThunks';
 import { getIsError } from 'redux/auth/authSelectors';
-// import { authReducer } from 'redux/auth/authSlice';
+import { clearError } from 'redux/auth/authSlice';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -15,12 +16,9 @@ const LoginPage = () => {
   useEffect(() => {
     if (isError) {
       console.log(isError);
-      <Alert variant="outlined" severity="error">
-        <AlertTitle>Error</AlertTitle>
-        Incorrect email or password
-      </Alert>;
-      return;
-      // dispatch(authReducer.clearError());
+      <h1>Error</h1>;
+      Notiflix.Notify.failure('Incorrect email or password');
+      dispatch(clearError());
     }
   }, [dispatch, isError]);
 
@@ -37,55 +35,62 @@ const LoginPage = () => {
   };
 
   return (
-    <Box
-      component="form"
-      noValidate
-      onSubmit={handleSubmit}
-      sx={{ mt: 1, ml: '20px', width: '60vw' }}
-      autoComplete="off"
-    >
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email"
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
+    <>
+      <Box
+        component="form"
+        noValidate
+        onSubmit={handleSubmit}
+        sx={{ mt: 1, ml: '20px', width: '60vw' }}
+        autoComplete="off"
+      >
+        {/* <Alert variant="filled" severity="error">
+          <AlertTitle>Error</AlertTitle>
+          Incorrect email or password
+        </Alert> */}
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
 
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-          >
-            Login
-          </Button>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Login
+            </Button>
 
-          <Grid container>
-            <Grid item>
-              <Link to="/register" variant="body2">
-                {"Don't have an account? REGISTER"}
-              </Link>
+            <Grid container>
+              <Grid item>
+                <Link to="/register" variant="body2">
+                  {"Don't have an account? REGISTER"}
+                </Link>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
-    </Box>
+      </Box>
+      {/* {isError ? <AlertError />} */}
+    </>
   );
 };
 
